@@ -1,13 +1,10 @@
-def TowerOfHanoi(n, from_rod, to_rod, aux_rod): 
-    if n == 0: 
-        return
-    TowerOfHanoi(n-1, from_rod, aux_rod, to_rod) 
-    print("Move disk", n, "from rod", from_rod, "to rod", to_rod) 
-    TowerOfHanoi(n-1, aux_rod, to_rod, from_rod) 
-  
-  
-# Driver code 
-N = 3
-  
-# A, C, B are the name of rods 
-TowerOfHanoi(N, 'A', 'C', 'B') 
+def hanoi(n, source, target, auxiliary):
+    if n == 1:
+        print(f"Move disk 1 from {source} to {target}")
+        return 
+    hanoi(n-1, source, auxiliary, target)
+    print(f"Move disk {n} from {source} to {target}")
+    hanoi(n-1, auxiliary, target, source)
+
+n = int(input("Enter the number of dsiks : "))
+hanoi(n, 'A', 'B', 'C')
